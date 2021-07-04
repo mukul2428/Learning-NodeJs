@@ -8,18 +8,23 @@ const port = 80;
 app.use('/static', express.static('static'));
 
 
+
+//PUG TEMPLATE STUFF
 //set the template engine as pug
 app.set('view engine', 'pug');
-
-
 //set the views directory
 app.set('views', path.join(__dirname, 'views'));
-
-
 //Our pug demo endpoint
 app.get("/demo", (req,res)=>{
+    //sending data to pug template to render
     res.status(200).render('demo', { title: 'Hey Mukul Raghav', message: 'Hello there! This is First Pug Template' });
 });
+app.get('/',(req,res)=>{
+    const con = "This is Demo for Pug Template"
+    res.status(200).render('index.pug', {title: 'Hey! Mukul Raghav', con});
+});
+
+
 
 app.get("/home", (req,res)=>{  //this is callback
     res.send("This is Home Page of my First Express Application");
