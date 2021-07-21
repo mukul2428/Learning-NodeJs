@@ -12,7 +12,7 @@ app.use('/static', express.static('static'));
 //PUG TEMPLATE STUFF
 //set the template engine as pug
 app.set('view engine', 'pug');
-//set the views directory
+//can set the views directory to any name
 app.set('views', path.join(__dirname, 'views'));
 //Our pug demo endpoint
 app.get("/demo", (req,res)=>{

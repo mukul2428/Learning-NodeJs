@@ -10,7 +10,10 @@ app.get("/", (req, res) => {  //this is callback
 });
 app.get("/api", (req, res) => {           //file encoding to avoid buffer data  
     fs.readFile(`${__dirname}/userapi.json`, "utf-8", (err, data) => {
-        res.send(data);
+        // res.send(data);
+        const obj = JSON.parse(data); //converted to object
+        // res.writeHead(200,{"content-type":"application/json"});
+        res.send(obj);
     });
     //OR
     // res.sendFile(path.join(__dirname+'/userapi.json'));
